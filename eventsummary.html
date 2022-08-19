@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Listner</title>
+  </head>
+  <body>
+    <h1>Final event Handeler</h1>
+    <h3 id="handler-status">Default Text</h3>
+    <button onclick="handelOnClick()">Handel event by onclick</button>
+    <button id="event-listner">Handel event by addEventListner</button>
+
+    <br />
+    <br />
+    <p id="input-text-display">Default Input text</p>
+    <input id="input-fild" type="text" />
+    <button id="btn-update">Update</button>
+    <br />
+    <br />
+    <script src="./js/eventsummary.js"></script>
+    <script>
+      function handelOnClick() {
+        const handlerStatus = document.getElementById("handler-status");
+        handlerStatus.innerText =
+          "handled by function attached on onclick attribute";
+      }
+      //   option 02
+      document
+        .getElementById("event-listner")
+        .addEventListener("click", function () {
+          const handlerStatus = document.getElementById("handler-status");
+          handlerStatus.innerText = "Text updated by event listner Button ";
+        });
+      document
+        .getElementById("btn-update")
+        .addEventListener("click", function () {
+          const inputFild = document.getElementById("input-fild");
+          const inputText = inputFild.value;
+
+          const p = document.getElementById("input-text-display");
+          p.innerText = inputText;
+          inputFild.value = "";
+        });
+    </script>
+  </body>
+</html>
